@@ -1,0 +1,19 @@
+[package]
+name = "scx_truther"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+description = "A non-competitive demo scheduler for sched-ext (rustland-core)"
+
+[dependencies]
+scx_rustland_core = { git = "https://github.com/sched-ext/scx.git", subdir = "rust/scx_rustland_core" }
+log = "0.4"
+env_logger = "0.11"
+
+[lib]
+name = "scx_truther"
+path = "src/lib.rs"
+
+[[bin]]
+name = "scx_truther"
+path = "src/main.rs"
