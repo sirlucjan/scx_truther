@@ -41,6 +41,11 @@ impl Truth {
         }
     }
 
+    /// Exposed for testing and teaching purposes.
+    pub fn index(&self) -> usize {
+        self.index
+    }
+
     pub fn log(&self) {
         info!("Year of the {}", ZODIAC[self.index]);
         info!("{}", TRUTHS[self.index]);
