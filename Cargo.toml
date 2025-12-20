@@ -17,3 +17,18 @@ path = "src/lib.rs"
 [[bin]]
 name = "scx_truther"
 path = "src/main.rs"
+
+[profile.release]
+lto = "thin"
+
+[profile.release-tiny]
+inherits = "release"
+lto = "thin"
+strip = true
+incremental = true
+codegen-units = 1
+
+[profile.release-fast]
+inherits = "release"
+lto = false
+incremental = true
