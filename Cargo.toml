@@ -10,6 +10,9 @@ scx_rustland_core = { git = "https://github.com/sched-ext/scx.git", subdir = "ru
 log = "0.4"
 env_logger = "0.11"
 
+[build-dependencies]
+scx_cargo = { git = "https://github.com/sched-ext/scx.git", subdir = "rust/scx_cargo" }
+
 [lib]
 name = "scx_truther"
 path = "src/lib.rs"
