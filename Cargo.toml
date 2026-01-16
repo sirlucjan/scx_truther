@@ -6,12 +6,12 @@ license = "MIT OR Apache-2.0"
 description = "A non-competitive demo scheduler for sched-ext (rustland-core)"
 
 [dependencies]
-scx_rustland_core = { git = "https://github.com/sched-ext/scx.git", subdir = "rust/scx_rustland_core" }
+scx_rustland_core = { git = "https://github.com/sched-ext/scx.git", branch = "main" }
 log = "0.4"
 env_logger = "0.11"
 
 [build-dependencies]
-scx_cargo = { git = "https://github.com/sched-ext/scx.git", subdir = "rust/scx_cargo" }
+scx_cargo = { git = "https://github.com/sched-ext/scx.git", branch = "main" }
 
 [lib]
 name = "scx_truther"
