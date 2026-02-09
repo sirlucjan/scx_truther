@@ -6,12 +6,12 @@ license = "MIT OR Apache-2.0"
 description = "A non-competitive demo scheduler for sched-ext (rustland-core)"
 
 [dependencies]
-scx_rustland_core = "2.4.9"
+scx_rustland_core = "2.4.10"
 log = "0.4"
 env_logger = "0.11"
 
 [build-dependencies]
-scx_cargo = "1.0.26"
+scx_cargo = "1.0.27"
 
 [lib]
 name = "scx_truther"
