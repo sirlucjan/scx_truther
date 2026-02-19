@@ -110,9 +110,9 @@ checksum = "843867be96c8daad0d758b57df9392b6d8d271134fce549de6ce169ff98a92af"
 
 [[package]]
 name = "bumpalo"
-version = "3.19.1"
+version = "3.20.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5dd9dc738b7a8311c7ade152424974d8115f2cdad61e8dab8dac9f2362298510"
+checksum = "5c6f81257d10a0f602a294ae4182251151ff97dbb504ef9afcdda4a64b24d9b4"
 
 [[package]]
 name = "camino"
@@ -505,9 +505,9 @@ checksum = "09edd9e8b54e49e587e4f6295a7d29c3ea94d469cb40ab8ca70b288248a81db2"
 
 [[package]]
 name = "libbpf-cargo"
-version = "0.26.0-beta.1"
+version = "0.26.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8f67e781e4af482d9fb558bcf9fe601c8f1188614d08694ceb4c2f0b35b5fd3f"
+checksum = "2df559c3961ae45e06aaff479036261375dbf0226541aa4155e60aa277fb37d6"
 dependencies = [
  "anyhow",
  "cargo_metadata",
@@ -524,9 +524,9 @@ dependencies = [
 
 [[package]]
 name = "libbpf-rs"
-version = "0.26.0-beta.1"
+version = "0.26.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7129813a2bcf27f1751fa7bf88bee2e2e2cd81a41c0b9cf6a5aab16ab150ab2f"
+checksum = "87c7c1017b506e5cbc007f65abb78b21bd5957dff9358882427ddbf634ba415b"
 dependencies = [
  "bitflags",
  "libbpf-sys",
@@ -536,9 +536,9 @@ dependencies = [
 
 [[package]]
 name = "libbpf-sys"
-version = "1.6.1+v1.6.1"
+version = "1.6.3+v1.6.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e351855cbd724ac341b2a1c163568808e72acd930c491a921331c2e5347390d3"
+checksum = "95f55336f7dbde4fbbaae7b5e271f9efc65bf1d0b69c6fcb1e5026a385e95f70"
 dependencies = [
  "cc",
  "nix",
@@ -547,9 +547,9 @@ dependencies = [
 
 [[package]]
 name = "libc"
-version = "0.2.182"
+version = "0.2.180"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6800badb6cb2082ffd7b6a67e6125bb39f18782f793520caee8cb8846be06112"
+checksum = "bcc35a38544a891a5f7c865aca548a982ccb3b8650a5b06d0fd33a10283c56fc"
 
 [[package]]
 name = "libloading"
@@ -607,9 +607,9 @@ checksum = "68354c5c6bd36d73ff3feceb05efa59b6acb7626617f4962be322a825e61f79a"
 
 [[package]]
 name = "nix"
-version = "0.30.1"
+version = "0.31.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "74523f3a35e05aba87a1d978330aef40f67b0304ac79c1c00b294c9830543db6"
+checksum = "225e7cfe711e0ba79a68baeddb2982723e4235247aefce1482f2f16c27865b66"
 dependencies = [
  "bitflags",
  "cfg-if",
@@ -814,8 +814,7 @@ dependencies = [
 [[package]]
 name = "scx_cargo"
 version = "1.0.27"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bb0c71b51cfd3231b8b30c71b8d01522679f146a4b23f6c0588e4d738899f604"
+source = "git+https://github.com/sched-ext/scx.git?branch=main#c61e9370085d699bf26ac8c403f697caf6ae1263"
 dependencies = [
  "anyhow",
  "bindgen",
@@ -836,8 +835,7 @@ dependencies = [
 [[package]]
 name = "scx_rustland_core"
 version = "2.4.10"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8439b99f0d07d10ecf876cbd4d25588523ae4cc9961f47b830bcb95388dc5938"
+source = "git+https://github.com/sched-ext/scx.git?branch=main#c61e9370085d699bf26ac8c403f697caf6ae1263"
 dependencies = [
  "anyhow",
  "libbpf-rs",
