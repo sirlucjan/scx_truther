@@ -505,8 +505,9 @@ checksum = "09edd9e8b54e49e587e4f6295a7d29c3ea94d469cb40ab8ca70b288248a81db2"
 
 [[package]]
 name = "libbpf-cargo"
-version = "0.26.0"
-source = "git+https://github.com/libbpf/libbpf-rs?rev=80d730e8c70c3615fdcc41eef457f64dc304d000#80d730e8c70c3615fdcc41eef457f64dc304d000"
+version = "0.26.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "fdd59674b82a31cb53e512cee97e3d5143737b40feda35f89b5b7f5c439e51e8"
 dependencies = [
  "anyhow",
  "cargo_metadata",
@@ -523,8 +524,9 @@ dependencies = [
 
 [[package]]
 name = "libbpf-rs"
-version = "0.26.0"
-source = "git+https://github.com/libbpf/libbpf-rs?rev=80d730e8c70c3615fdcc41eef457f64dc304d000#80d730e8c70c3615fdcc41eef457f64dc304d000"
+version = "0.26.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a6af29f679fd713ba4466b0296436268f573f6c5a8ef2f316d237eb3019c3c6f"
 dependencies = [
  "bitflags",
  "libbpf-sys",
@@ -812,7 +814,7 @@ dependencies = [
 [[package]]
 name = "scx_cargo"
 version = "1.0.27"
-source = "git+https://github.com/sched-ext/scx.git?branch=main#1d7cc866a2d57c8af28d6cd322d4a55874d9e050"
+source = "git+https://github.com/sched-ext/scx.git?branch=main#08ed41b6a8e64680bd4c6ac90e2b9dfb27b12008"
 dependencies = [
  "anyhow",
  "bindgen",
@@ -833,7 +835,7 @@ dependencies = [
 [[package]]
 name = "scx_rustland_core"
 version = "2.4.10"
-source = "git+https://github.com/sched-ext/scx.git?branch=main#1d7cc866a2d57c8af28d6cd322d4a55874d9e050"
+source = "git+https://github.com/sched-ext/scx.git?branch=main#08ed41b6a8e64680bd4c6ac90e2b9dfb27b12008"
 dependencies = [
  "anyhow",
  "libbpf-rs",
