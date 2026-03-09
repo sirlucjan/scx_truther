@@ -246,10 +246,30 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b05b61dc5112cbb17e4b6cd61790d9845d13888356391624cbe7e41efeac1e75"
 
 [[package]]
-name = "convert_case"
-version = "0.11.0"
+name = "const_format"
+version = "0.2.35"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "affbf0190ed2caf063e3def54ff444b449371d55c58e513a95ab98eca50adb49"
+checksum = "7faa7469a93a566e9ccc1c73fe783b4a65c274c5ace346038dca9c39fe0030ad"
+dependencies = [
+ "const_format_proc_macros",
+]
+
+[[package]]
+name = "const_format_proc_macros"
+version = "0.2.34"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1d57c2eccfb16dbac1f4e61e206105db5820c9d26c3c472bc17c774259ef7744"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "unicode-xid",
+]
+
+[[package]]
+name = "convert_case"
+version = "0.6.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ec182b0ca2f35d8fc196cf3404988fd8b8c739a4d270ff118a398feb0cbec1ca"
 dependencies = [
  "unicode-segmentation",
 ]
@@ -723,7 +743,7 @@ dependencies = [
  "aho-corasick",
  "memchr",
  "regex-automata",
- "regex-syntax",
+ "regex-syntax 0.8.10",
 ]
 
 [[package]]
@@ -734,8 +754,14 @@ checksum = "6e1dd4122fc1595e8162618945476892eefca7b88c52820e74af6262213cae8f"
 dependencies = [
  "aho-corasick",
  "memchr",
- "regex-syntax",
+ "regex-syntax 0.8.10",
 ]
+
+[[package]]
+name = "regex-syntax"
+version = "0.6.29"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f162c6dd7b008981e4d40210aca20b4bd0f9b60ca9271061b07f78537722f2e1"
 
 [[package]]
 name = "regex-syntax"
@@ -789,7 +815,8 @@ dependencies = [
 [[package]]
 name = "scx_cargo"
 version = "1.1.0"
-source = "git+https://github.com/sched-ext/scx.git?branch=main#81bfa76eec207beb5ca25c61769de298d9c6e33e"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4cfb4291212867139f1469e14d5e0edaa293f6143857c62f0b1bae4ddde6d321"
 dependencies = [
  "anyhow",
  "bindgen",
@@ -810,7 +837,8 @@ dependencies = [
 [[package]]
 name = "scx_rustland_core"
 version = "2.4.11"
-source = "git+https://github.com/sched-ext/scx.git?branch=main#81bfa76eec207beb5ca25c61769de298d9c6e33e"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d9852f2afa13de14e85a8e66676ff3b98709d0ed934417e8ef28d7f0ae5c643d"
 dependencies = [
  "anyhow",
  "libbpf-rs",
@@ -822,7 +850,7 @@ dependencies = [
 
 [[package]]
 name = "scx_truther"
-version = "0.1.6"
+version = "0.2.0"
 dependencies = [
  "env_logger",
  "log",
@@ -925,25 +953,26 @@ checksum = "67b1b7a3b5fe4f1376887184045fcf45c69e92af734b7aaddc05fb777b6fbd03"
 
 [[package]]
 name = "sscanf"
-version = "0.5.0"
+version = "0.4.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "40717d6e75d650a68c4ce1c4247407dc2b70e77e1b04eb0819ea604bac7d5b58"
+checksum = "569fdd714955aad3acdde5d13129eaa6c4576b759c0585488c84ad395263138a"
 dependencies = [
- "regex-automata",
- "regex-syntax",
+ "const_format",
+ "lazy_static",
+ "regex",
  "sscanf_macro",
 ]
 
 [[package]]
 name = "sscanf_macro"
-version = "0.5.0"
+version = "0.4.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "604bbbe9f013054db6976eed3108230ceae6f10cd84d59d196e96d4aa32838d1"
+checksum = "77faf04b02dc0dd55e6713fcae44aa6e8882570bae2bd873949924d6e57cca82"
 dependencies = [
  "convert_case",
  "proc-macro2",
  "quote",
- "regex-syntax",
+ "regex-syntax 0.6.29",
  "strsim",
  "syn",
  "unicode-width",
@@ -1097,9 +1126,9 @@ checksum = "f6ccf251212114b54433ec949fd6a7841275f9ada20dddd2f29e9ceea4501493"
 
 [[package]]
 name = "unicode-width"
-version = "0.2.2"
+version = "0.1.14"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b4ac048d71ede7ee76d585517add45da530660ef4390e49b098733c6e897f254"
+checksum = "7dd6e30e90baa6f72411720665d41d89b9a3d039dc45b8faea1ddd07f617f6af"
 
 [[package]]
 name = "unicode-xid"
@@ -1121,9 +1150,9 @@ checksum = "ba73ea9cf16a25df0c8caa16c51acb937d5712a8429db78a3ee29d5dcacd3a65"
 
 [[package]]
 name = "version-compare"
-version = "0.2.1"
+version = "0.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "03c2856837ef78f57382f06b2b8563a2f512f7185d732608fd9176cb3b8edf0e"
+checksum = "579a42fc0b8e0c63b76519a339be31bed574929511fa53c1a3acae26eb258f29"
 
 [[package]]
 name = "vsprintf"
