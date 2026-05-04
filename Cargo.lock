@@ -246,31 +246,10 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1d07550c9036bf2ae0c684c4297d503f838287c83c53686d05370d0e139ae570"
 
 [[package]]
-name = "const_format"
-version = "0.2.36"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4481a617ad9a412be3b97c5d403fef8ed023103368908b9c50af598ff467cc1e"
-dependencies = [
- "const_format_proc_macros",
- "konst",
-]
-
-[[package]]
-name = "const_format_proc_macros"
-version = "0.2.34"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1d57c2eccfb16dbac1f4e61e206105db5820c9d26c3c472bc17c774259ef7744"
-dependencies = [
- "proc-macro2",
- "quote",
- "unicode-xid",
-]
-
-[[package]]
 name = "convert_case"
-version = "0.6.0"
+version = "0.11.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ec182b0ca2f35d8fc196cf3404988fd8b8c739a4d270ff118a398feb0cbec1ca"
+checksum = "affbf0190ed2caf063e3def54ff444b449371d55c58e513a95ab98eca50adb49"
 dependencies = [
  "unicode-segmentation",
 ]
@@ -519,21 +498,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "konst"
-version = "0.2.20"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "128133ed7824fcd73d6e7b17957c5eb7bacb885649bd8c69708b2331a10bcefb"
-dependencies = [
- "konst_macro_rules",
-]
-
-[[package]]
-name = "konst_macro_rules"
-version = "0.2.19"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a4933f3f57a8e9d9da04db23fb153356ecaf00cbd14aee46279c33dc80925c37"
-
-[[package]]
 name = "lazy_static"
 version = "1.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -547,8 +511,9 @@ checksum = "09edd9e8b54e49e587e4f6295a7d29c3ea94d469cb40ab8ca70b288248a81db2"
 
 [[package]]
 name = "libbpf-cargo"
-version = "0.26.1"
-source = "git+https://github.com/libbpf/libbpf-rs?rev=bfa427053384c2dd1251a0f5ed98c473395aa52b#bfa427053384c2dd1251a0f5ed98c473395aa52b"
+version = "0.26.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "67e63283df9689af55b85f91e99dc8b213ae89fc3e1d9bb29ab7f75eb8a8a783"
 dependencies = [
  "anyhow",
  "cargo_metadata",
@@ -564,8 +529,9 @@ dependencies = [
 
 [[package]]
 name = "libbpf-rs"
-version = "0.26.1"
-source = "git+https://github.com/libbpf/libbpf-rs?rev=bfa427053384c2dd1251a0f5ed98c473395aa52b#bfa427053384c2dd1251a0f5ed98c473395aa52b"
+version = "0.26.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "fd8e8db46a2d5967b5b3dba7aba32a875dc38f222395040607045635ec1f9b63"
 dependencies = [
  "bitflags",
  "libbpf-sys",
@@ -782,7 +748,7 @@ dependencies = [
  "aho-corasick",
  "memchr",
  "regex-automata",
- "regex-syntax 0.8.10",
+ "regex-syntax",
 ]
 
 [[package]]
@@ -793,14 +759,8 @@ checksum = "6e1dd4122fc1595e8162618945476892eefca7b88c52820e74af6262213cae8f"
 dependencies = [
  "aho-corasick",
  "memchr",
- "regex-syntax 0.8.10",
+ "regex-syntax",
 ]
-
-[[package]]
-name = "regex-syntax"
-version = "0.6.29"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f162c6dd7b008981e4d40210aca20b4bd0f9b60ca9271061b07f78537722f2e1"
 
 [[package]]
 name = "regex-syntax"
@@ -854,8 +814,7 @@ dependencies = [
 [[package]]
 name = "scx_cargo"
 version = "1.1.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4cfb4291212867139f1469e14d5e0edaa293f6143857c62f0b1bae4ddde6d321"
+source = "git+https://github.com/sched-ext/scx.git?branch=main#145eb8b0d6ead4b3cfcf2f64b13c430308f33df5"
 dependencies = [
  "anyhow",
  "bindgen",
@@ -876,8 +835,7 @@ dependencies = [
 [[package]]
 name = "scx_rustland_core"
 version = "2.4.11"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d9852f2afa13de14e85a8e66676ff3b98709d0ed934417e8ef28d7f0ae5c643d"
+source = "git+https://github.com/sched-ext/scx.git?branch=main#145eb8b0d6ead4b3cfcf2f64b13c430308f33df5"
 dependencies = [
  "anyhow",
  "libbpf-rs",
@@ -998,26 +956,25 @@ checksum = "67b1b7a3b5fe4f1376887184045fcf45c69e92af734b7aaddc05fb777b6fbd03"
 
 [[package]]
 name = "sscanf"
-version = "0.4.4"
+version = "0.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "569fdd714955aad3acdde5d13129eaa6c4576b759c0585488c84ad395263138a"
+checksum = "40717d6e75d650a68c4ce1c4247407dc2b70e77e1b04eb0819ea604bac7d5b58"
 dependencies = [
- "const_format",
- "lazy_static",
- "regex",
+ "regex-automata",
+ "regex-syntax",
  "sscanf_macro",
 ]
 
 [[package]]
 name = "sscanf_macro"
-version = "0.4.4"
+version = "0.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "77faf04b02dc0dd55e6713fcae44aa6e8882570bae2bd873949924d6e57cca82"
+checksum = "604bbbe9f013054db6976eed3108230ceae6f10cd84d59d196e96d4aa32838d1"
 dependencies = [
  "convert_case",
  "proc-macro2",
  "quote",
- "regex-syntax 0.6.29",
+ "regex-syntax",
  "strsim",
  "syn",
  "unicode-width",
@@ -1171,9 +1128,9 @@ checksum = "9629274872b2bfaf8d66f5f15725007f635594914870f65218920345aa11aa8c"
 
 [[package]]
 name = "unicode-width"
-version = "0.1.14"
+version = "0.2.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7dd6e30e90baa6f72411720665d41d89b9a3d039dc45b8faea1ddd07f617f6af"
+checksum = "b4ac048d71ede7ee76d585517add45da530660ef4390e49b098733c6e897f254"
 
 [[package]]
 name = "unicode-xid"
@@ -1195,9 +1152,9 @@ checksum = "ba73ea9cf16a25df0c8caa16c51acb937d5712a8429db78a3ee29d5dcacd3a65"
 
 [[package]]
 name = "version-compare"
-version = "0.1.1"
+version = "0.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "579a42fc0b8e0c63b76519a339be31bed574929511fa53c1a3acae26eb258f29"
+checksum = "03c2856837ef78f57382f06b2b8563a2f512f7185d732608fd9176cb3b8edf0e"
 
 [[package]]
 name = "vsprintf"
