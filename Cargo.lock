@@ -792,7 +792,7 @@ dependencies = [
 [[package]]
 name = "scx_cargo"
 version = "1.1.0"
-source = "git+https://github.com/sched-ext/scx.git?branch=main#4686b02048cd3deda71b4ffb82350d6fe10dec7a"
+source = "git+https://github.com/sched-ext/scx.git?branch=main#ae839bc2f959db23b983a9a692f3c531ef1c6a08"
 dependencies = [
  "anyhow",
  "bindgen",
@@ -813,7 +813,7 @@ dependencies = [
 [[package]]
 name = "scx_rustland_core"
 version = "2.4.11"
-source = "git+https://github.com/sched-ext/scx.git?branch=main#4686b02048cd3deda71b4ffb82350d6fe10dec7a"
+source = "git+https://github.com/sched-ext/scx.git?branch=main#ae839bc2f959db23b983a9a692f3c531ef1c6a08"
 dependencies = [
  "anyhow",
  "libbpf-rs",
