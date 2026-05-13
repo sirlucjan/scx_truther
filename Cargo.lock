@@ -313,9 +313,9 @@ checksum = "9f1f227452a390804cdb637b74a86990f2a7d7ba4b7d5693aac9b4dd6defd8d6"
 
 [[package]]
 name = "filetime"
-version = "0.2.28"
+version = "0.2.29"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2d5b2eef6fafbf69f877e55509ce5b11a760690ac9700a2921be067aa6afaef6"
+checksum = "5c287a33c7f0a620c38e641e7f60827713987b3c0f26e8ddc9462cc69cf75759"
 dependencies = [
  "cfg-if",
  "libc",
@@ -791,8 +791,9 @@ dependencies = [
 
 [[package]]
 name = "scx_cargo"
-version = "1.1.0"
-source = "git+https://github.com/sched-ext/scx.git?branch=main#ae839bc2f959db23b983a9a692f3c531ef1c6a08"
+version = "1.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "8debf6b2fe0ce5ac77db48aae13cc5f3a0c4230622df74797cc25bee0b2b137b"
 dependencies = [
  "anyhow",
  "bindgen",
@@ -812,8 +813,9 @@ dependencies = [
 
 [[package]]
 name = "scx_rustland_core"
-version = "2.4.11"
-source = "git+https://github.com/sched-ext/scx.git?branch=main#ae839bc2f959db23b983a9a692f3c531ef1c6a08"
+version = "2.4.12"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "79d3fc43355649f00c99c30ef85f25eb1e014c4315f1bebbfc6066d24539be5d"
 dependencies = [
  "anyhow",
  "libbpf-rs",
