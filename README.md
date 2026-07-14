@@ -19,6 +19,18 @@ Nothing useful.
 
 It registers as a sched-ext scheduler and tells you the truth.
 
+## Goals
+
+- Be useless.
+- Stay useless.
+- Never accidentally become useful.
+
+## Design goals
+
+- Maximum absurdity.
+- Minimum practicality.
+- Compile successfully.
+
 ## How to run
 
 ```bash
