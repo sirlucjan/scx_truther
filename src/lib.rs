@@ -1,8 +1,13 @@
 pub mod astrology;
+pub mod biorhythm;
 pub mod conspiracy;
 pub mod cryptid;
+pub mod eightball;
 pub mod mercury;
 pub mod numerology;
+pub mod omen;
+pub mod runes;
 pub mod scheduler;
+pub mod tarot;
 pub mod truth;
 pub mod util;
