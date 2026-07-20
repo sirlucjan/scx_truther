@@ -39,5 +39,8 @@ pub fn sighting(rng: &mut Rng) {
         .map(|s| s.comm)
         .unwrap_or_else(|_| "an unnamed process".to_string());
 
-    info!("Cryptid sighting: {cryptid} has disguised itself as PID {} ({comm}).", target.pid);
+    info!(
+        "Cryptid sighting: {cryptid} has disguised itself as PID {} ({comm}).",
+        target.pid
+    );
 }

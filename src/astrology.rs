@@ -6,15 +6,36 @@ use log::info;
 use crate::util::Rng;
 
 pub const ZODIAC: [(&str, &str); 12] = [
-    ("Rat 🐀", "Small, fast, and first in line for the CPU. Everyone else is annoyed."),
-    ("Ox 🐂", "Slow and steady. Wins nothing, but never times out."),
-    ("Tiger 🐅", "Pounces on the run queue before the scheduler is ready."),
-    ("Rabbit 🐇", "Context-switches nervously. Never finishes anything."),
+    (
+        "Rat 🐀",
+        "Small, fast, and first in line for the CPU. Everyone else is annoyed.",
+    ),
+    (
+        "Ox 🐂",
+        "Slow and steady. Wins nothing, but never times out.",
+    ),
+    (
+        "Tiger 🐅",
+        "Pounces on the run queue before the scheduler is ready.",
+    ),
+    (
+        "Rabbit 🐇",
+        "Context-switches nervously. Never finishes anything.",
+    ),
     ("Dragon 🐉", "Demands root. Rarely needs it."),
-    ("Snake 🐍", "Silent, slithering through your call stack unseen."),
-    ("Horse 🐎", "Gallops through benchmarks it will never publish."),
+    (
+        "Snake 🐍",
+        "Silent, slithering through your call stack unseen.",
+    ),
+    (
+        "Horse 🐎",
+        "Gallops through benchmarks it will never publish.",
+    ),
     ("Goat 🐐", "Climbs the priority queue out of spite."),
-    ("Monkey 🐒", "Copy-pastes code from the internet and calls it architecture."),
+    (
+        "Monkey 🐒",
+        "Copy-pastes code from the internet and calls it architecture.",
+    ),
     ("Rooster 🐓", "Wakes every process at 4am for no reason."),
     ("Dog 🐕", "Loyal to whatever branch you happen to be on."),
     ("Pig 🐖", "Consumes all available memory and is not sorry."),

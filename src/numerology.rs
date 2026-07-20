@@ -4,18 +4,51 @@
 use log::info;
 
 const MEANINGS: [(u32, &str); 12] = [
-    (1, "The leader. Insists on writing its own scheduler instead of using yours."),
-    (2, "The mediator. Constantly resolving merge conflicts nobody asked it to resolve."),
-    (3, "The creative. Adds emojis to log output that nobody reads."),
-    (4, "The builder. Trusts `cargo build` more than it trusts itself."),
-    (5, "The wanderer. Changes distros more often than it changes its shell config."),
-    (6, "The caretaker. Pins dependency versions out of love, not fear."),
-    (7, "The thinker. Reads the whole man page before running the command."),
-    (8, "The achiever. Measures self-worth in benchmark percentiles."),
-    (9, "The old soul. Still uses the editor keybindings it learned first."),
-    (11, "Master number. Sees patterns in profiler output that are not there."),
+    (
+        1,
+        "The leader. Insists on writing its own scheduler instead of using yours.",
+    ),
+    (
+        2,
+        "The mediator. Constantly resolving merge conflicts nobody asked it to resolve.",
+    ),
+    (
+        3,
+        "The creative. Adds emojis to log output that nobody reads.",
+    ),
+    (
+        4,
+        "The builder. Trusts `cargo build` more than it trusts itself.",
+    ),
+    (
+        5,
+        "The wanderer. Changes distros more often than it changes its shell config.",
+    ),
+    (
+        6,
+        "The caretaker. Pins dependency versions out of love, not fear.",
+    ),
+    (
+        7,
+        "The thinker. Reads the whole man page before running the command.",
+    ),
+    (
+        8,
+        "The achiever. Measures self-worth in benchmark percentiles.",
+    ),
+    (
+        9,
+        "The old soul. Still uses the editor keybindings it learned first.",
+    ),
+    (
+        11,
+        "Master number. Sees patterns in profiler output that are not there.",
+    ),
     (22, "Master number. Once rewrote a joke scheduler. Twice."),
-    (33, "Master number. Has strong opinions about formatting and will share them."),
+    (
+        33,
+        "Master number. Has strong opinions about formatting and will share them.",
+    ),
 ];
 
 /// Reduce to a single digit, except that 11, 22, and 33 are preserved as
