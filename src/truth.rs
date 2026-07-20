@@ -1,53 +1,50 @@
+// This software may be used and distributed according to the terms of the
+// GNU General Public License version 2.
+
 use log::info;
 
-const ZODIAC: [&str; 12] = [
-    "Rat 🐀",
-    "Ox 🐂",
-    "Tiger 🐅",
-    "Rabbit 🐇",
-    "Dragon 🐉",
-    "Snake 🐍",
-    "Horse 🐎",
-    "Goat 🐐",
-    "Monkey 🐒",
-    "Rooster 🐓",
-    "Dog 🐕",
-    "Pig 🐖",
-];
+use crate::astrology::Astrology;
+use crate::conspiracy::Conspiracy;
+use crate::cryptid;
+use crate::mercury;
+use crate::numerology::LifePath;
+use crate::util::Rng;
 
-const TRUTHS: [&str; 12] = [
-    "Your CPU is fast. Your workload is not.",
-    "Hard work is not the same as smart work.",
-    "More threads will not fix bad architecture.",
-    "Latency is a fact. Throughput is a feeling.",
-    "Benchmarks do not measure truth.",
-    "Optimizing the wrong thing is still wrong.",
-    "The scheduler cannot save bad design.",
-    "Parallelism amplifies mistakes.",
-    "Balance is an illusion.",
-    "Complexity grows faster than performance.",
-    "Reality does not care about your flags.",
-    "Nothing is free. Especially performance.",
-];
-
-pub struct Truth {
-    index: usize,
+/// The one true source of truth. Dispenses astrology, conspiracy theories,
+/// numerology, and cryptid sightings — never anything about actual
+/// scheduling, because this scheduler does not do that.
+pub struct Oracle {
+    rng: Rng,
+    pid: u32,
 }
 
-impl Truth {
+impl Oracle {
     pub fn new(seed: u64) -> Self {
         Self {
-            index: (seed % 12) as usize,
+            rng: Rng::new(seed),
+            pid: std::process::id(),
         }
     }
 
-    /// Exposed for testing and teaching purposes.
-    pub fn index(&self) -> usize {
-        self.index
+    /// The full startup ritual: one reading from every category.
+    pub fn full_reading(&mut self) {
+        info!("=== The Truth, in full ===");
+        Astrology::roll(&mut self.rng).log();
+        Conspiracy::roll(&mut self.rng).log();
+        LifePath::from_pid(self.pid).log();
+        mercury::log();
+        cryptid::sighting(&mut self.rng);
+        info!("===========================");
     }
 
-    pub fn log(&self) {
-        info!("Year of the {}", ZODIAC[self.index]);
-        info!("{}", TRUTHS[self.index]);
+    /// A single random truth, for periodic reminders that this is still
+    /// not a real scheduler.
+    pub fn one_truth(&mut self) {
+        match self.rng.next_u64() % 4 {
+            0 => Astrology::roll(&mut self.rng).log(),
+            1 => Conspiracy::roll(&mut self.rng).log(),
+            2 => mercury::log(),
+            _ => cryptid::sighting(&mut self.rng),
+        }
     }
 }
