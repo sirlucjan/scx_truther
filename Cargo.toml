@@ -1,17 +1,25 @@
 [package]
 name = "scx_truther"
-version = "0.3.1"
+version = "0.5.0"
 edition = "2021"
 license = "MIT OR Apache-2.0"
-description = "A non-competitive demo scheduler for sched-ext (rustland-core)"
+description = "A useless scheduler for sched-ext (rustland-core) that dispenses astrology, conspiracy theories, numerology, and cryptid sightings instead of scheduling anything"
 
 [dependencies]
 scx_rustland_core = "2.4.13"
+scx_utils = "1.1.2"
+anyhow = "1"
+plain = "0.2"
+procfs = "0.18"
+ctrlc = { version = "3", features = ["termination"] }
+libbpf-rs = "=0.26.2"
+libc = "0.2"
 log = "0.4"
 env_logger = "0.11"
 
 [build-dependencies]
 scx_cargo = "1.1.2"
+scx_rustland_core = "2.4.13"
 
 [lib]
 name = "scx_truther"
