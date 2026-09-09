@@ -1089,7 +1089,7 @@ dependencies = [
 
 [[package]]
 name = "scx_truther"
-version = "0.5.1"
+version = "0.6.0"
 dependencies = [
  "anyhow",
  "ctrlc",
