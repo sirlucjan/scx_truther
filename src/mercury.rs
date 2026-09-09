@@ -14,7 +14,7 @@ pub fn is_retrograde() -> bool {
         .map(|d| d.as_secs() / 86_400)
         .unwrap_or(0);
 
-    days % 5 == 0
+    days.is_multiple_of(5)
 }
 
 pub fn log() {

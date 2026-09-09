@@ -90,7 +90,7 @@ impl TarotReading {
     pub fn draw(rng: &mut Rng) -> Self {
         Self {
             index: (rng.next_u64() as usize) % MAJOR_ARCANA.len(),
-            reversed: rng.next_u64() % 2 == 0,
+            reversed: rng.next_u64().is_multiple_of(2),
         }
     }
 
