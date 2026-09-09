@@ -1,7 +1,8 @@
 [package]
 name = "scx_truther"
 version = "0.5.1"
-edition = "2021"
+edition = "2024"
+rust-version = "1.91"
 license = "MIT OR Apache-2.0"
 description = "A useless scheduler for sched-ext (rustland-core) that dispenses astrology, conspiracy theories, numerology, and cryptid sightings instead of scheduling anything"
 
