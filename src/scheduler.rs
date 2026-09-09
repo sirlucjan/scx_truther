@@ -1,8 +1,8 @@
 // This software may be used and distributed according to the terms of the
 // GNU General Public License version 2.
 
-use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::Arc;
+use std::sync::atomic::{AtomicBool, Ordering};
 use std::time::Duration;
 
 use log::{info, warn};
