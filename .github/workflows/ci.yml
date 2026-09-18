@@ -1,0 +1,89 @@
+name: Cargo Build & Test
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+env:
+  CARGO_TERM_COLOR: always
+  RUSTFLAGS: -Dwarnings
+
+jobs:
+  pre_ci:
+    uses: dtolnay/.github/.github/workflows/pre_ci.yml@master
+
+  test:
+    name: Rust ${{matrix.rust}}
+    needs: pre_ci
+    if: needs.pre_ci.outputs.continue
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        rust: [stable, 1.91.0]
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v5
+      - uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: ${{matrix.rust}}
+      # scx_rustland_core compiles its BPF component at build time via
+      # clang, and libbpf-sys builds vendored libbpf against libelf/zlib.
+      # Without these, `cargo build` fails in the build script, not in
+      # Rust code.
+      - run: sudo apt-get update && sudo apt-get install -y clang libelf-dev zlib1g-dev libzstd-dev pkg-config
+      - run: cargo build --verbose
+      - run: cargo test --verbose
+
+  clippy:
+    # Deliberately on pull requests too: a denying lint that runs only
+    # after the merge is a horseman who arrives when the battle is over.
+    # Gated through pre_ci like every other blocking job, so a local PR
+    # whose merge tree matches the branch push does not pay for two
+    # identical runs. The beta job below stays advisory and post-merge —
+    # it exists to see the future, not to block the present.
+    name: Clippy (MSRV, deny)
+    needs: pre_ci
+    if: needs.pre_ci.outputs.continue
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v5
+      - uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: 1.91.0
+          components: clippy
+      # Clippy runs the build script too, so the BPF toolchain is needed
+      # here as well.
+      - run: sudo apt-get update && sudo apt-get install -y clang libelf-dev zlib1g-dev libzstd-dev pkg-config
+      - run: cargo clippy --tests -- -Dclippy::all -Dclippy::pedantic
+
+  clippy_beta:
+    name: Clippy (beta, advisory)
+    runs-on: ubuntu-latest
+    if: github.event_name != 'pull_request'
+    timeout-minutes: 45
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v5
+      - uses: dtolnay/rust-toolchain@beta
+        with:
+          components: clippy
+      - run: sudo apt-get update && sudo apt-get install -y clang libelf-dev zlib1g-dev libzstd-dev pkg-config
+      - run: cargo clippy --tests -- -Dclippy::all -Dclippy::pedantic
+
+  format:
+    name: rustfmt
+    needs: pre_ci
+    if: needs.pre_ci.outputs.continue
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v5
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt
+      - run: cargo fmt --all -- --check
