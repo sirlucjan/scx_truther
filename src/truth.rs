@@ -33,6 +33,7 @@ pub enum Mode {
 }
 
 impl Mode {
+    #[must_use]
     pub fn parse(arg: &str) -> Option<Self> {
         match arg {
             "all" => Some(Mode::All),
@@ -50,6 +51,7 @@ impl Mode {
         }
     }
 
+    #[must_use]
     pub fn name(&self) -> &'static str {
         match self {
             Mode::All => "all",
@@ -78,6 +80,7 @@ pub struct Oracle {
 }
 
 impl Oracle {
+    #[must_use]
     pub fn new(seed: u64, mode: Mode) -> Self {
         Self {
             rng: Rng::new(seed),

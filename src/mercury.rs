@@ -8,6 +8,7 @@ use std::time::{SystemTime, UNIX_EPOCH};
 /// for reasons you couldn't explain: roughly one day in five, computed from
 /// today's date so it's at least consistent within a day. Astronomically
 /// nonsense. Emotionally accurate.
+#[must_use]
 pub fn is_retrograde() -> bool {
     let days = SystemTime::now()
         .duration_since(UNIX_EPOCH)

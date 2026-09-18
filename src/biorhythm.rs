@@ -29,7 +29,7 @@ fn describe(value: f64) -> &'static str {
 /// the PID as day zero — this process's only birth is the one that matters
 /// to this scheduler.
 pub fn log(pid: u32) {
-    let day = pid as f64;
+    let day = f64::from(pid);
 
     let physical = phase(day, PHYSICAL_PERIOD);
     let emotional = phase(day, EMOTIONAL_PERIOD);

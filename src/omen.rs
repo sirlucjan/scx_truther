@@ -8,7 +8,7 @@ use procfs::{Current, LoadAverage};
 /// closest thing this crate has to monitoring, and it is still useless.
 pub fn log() {
     let proc_count = procfs::process::all_processes()
-        .map(|it| it.count())
+        .map(Iterator::count)
         .unwrap_or(0);
 
     match LoadAverage::current() {

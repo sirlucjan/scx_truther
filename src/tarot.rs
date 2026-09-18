@@ -89,15 +89,17 @@ pub struct TarotReading {
 impl TarotReading {
     pub fn draw(rng: &mut Rng) -> Self {
         Self {
-            index: (rng.next_u64() as usize) % MAJOR_ARCANA.len(),
+            index: rng.pick_index(MAJOR_ARCANA.len()),
             reversed: rng.next_u64().is_multiple_of(2),
         }
     }
 
+    #[must_use]
     pub fn index(&self) -> usize {
         self.index
     }
 
+    #[must_use]
     pub fn reversed(&self) -> bool {
         self.reversed
     }

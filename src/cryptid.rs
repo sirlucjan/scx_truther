@@ -32,12 +32,10 @@ pub fn sighting(rng: &mut Rng) {
         return;
     }
 
-    let idx = (rng.next_u64() as usize) % procs.len();
-    let target = &procs[idx];
+    let target = rng.pick(&procs);
     let comm = target
         .stat()
-        .map(|s| s.comm)
-        .unwrap_or_else(|_| "an unnamed process".to_string());
+        .map_or_else(|_| "an unnamed process".to_string(), |s| s.comm);
 
     info!(
         "Cryptid sighting: {cryptid} has disguised itself as PID {} ({comm}).",

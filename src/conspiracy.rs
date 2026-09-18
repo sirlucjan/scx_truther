@@ -77,10 +77,11 @@ pub struct Conspiracy {
 impl Conspiracy {
     pub fn roll(rng: &mut Rng) -> Self {
         Self {
-            index: (rng.next_u64() as usize) % CONSPIRACIES.len(),
+            index: rng.pick_index(CONSPIRACIES.len()),
         }
     }
 
+    #[must_use]
     pub fn index(&self) -> usize {
         self.index
     }

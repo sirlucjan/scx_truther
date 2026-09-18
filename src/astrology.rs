@@ -62,19 +62,22 @@ pub struct Astrology {
 
 impl Astrology {
     /// Deterministic sign from an arbitrary seed. Kept for testability.
+    #[must_use]
     pub fn from_seed(seed: u64) -> Self {
-        Self {
-            index: (seed % ZODIAC.len() as u64) as usize,
-        }
+        // Cannot truncate: reduced modulo ZODIAC.len() first.
+        #[allow(clippy::cast_possible_truncation)]
+        let index = (seed % ZODIAC.len() as u64) as usize;
+        Self { index }
     }
 
     /// Roll a fresh sign from the shared RNG.
     pub fn roll(rng: &mut Rng) -> Self {
         Self {
-            index: (rng.next_u64() as usize) % ZODIAC.len(),
+            index: rng.pick_index(ZODIAC.len()),
         }
     }
 
+    #[must_use]
     pub fn index(&self) -> usize {
         self.index
     }

@@ -59,7 +59,7 @@ fn digital_root(mut n: u32) -> u32 {
         if n == 11 || n == 22 || n == 33 || n < 10 {
             return n;
         }
-        n = n.to_string().bytes().map(|b| (b - b'0') as u32).sum();
+        n = n.to_string().bytes().map(|b| u32::from(b - b'0')).sum();
     }
 }
 
@@ -68,12 +68,14 @@ pub struct LifePath {
 }
 
 impl LifePath {
+    #[must_use]
     pub fn from_pid(pid: u32) -> Self {
         Self {
             number: digital_root(pid),
         }
     }
 
+    #[must_use]
     pub fn number(&self) -> u32 {
         self.number
     }
@@ -82,8 +84,7 @@ impl LifePath {
         let meaning = MEANINGS
             .iter()
             .find(|(n, _)| *n == self.number)
-            .map(|(_, m)| *m)
-            .unwrap_or("Undefined behavior. Consult the standard.");
+            .map_or("Undefined behavior. Consult the standard.", |(_, m)| *m);
 
         info!("Your PID's life path number is {}", self.number);
         info!("{meaning}");

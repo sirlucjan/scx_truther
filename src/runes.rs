@@ -131,10 +131,11 @@ pub struct RuneCast {
 impl RuneCast {
     pub fn cast(rng: &mut Rng) -> Self {
         Self {
-            index: (rng.next_u64() as usize) % RUNES.len(),
+            index: rng.pick_index(RUNES.len()),
         }
     }
 
+    #[must_use]
     pub fn index(&self) -> usize {
         self.index
     }
