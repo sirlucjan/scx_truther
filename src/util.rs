@@ -21,9 +21,9 @@ pub fn seed_from_system() -> u64 {
         .or_else(|_| std::env::var("HOST"))
         .unwrap_or_default();
 
-    let host_hash = host
-        .bytes()
-        .fold(0u64, |acc, b| acc.wrapping_mul(31).wrapping_add(u64::from(b)));
+    let host_hash = host.bytes().fold(0u64, |acc, b| {
+        acc.wrapping_mul(31).wrapping_add(u64::from(b))
+    });
 
     nanos ^ pid.wrapping_mul(0x9E37_79B9_7F4A_7C15) ^ host_hash
 }
