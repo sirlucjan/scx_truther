@@ -12,8 +12,7 @@ pub fn seed_from_system() -> u64 {
     #[allow(clippy::cast_possible_truncation)]
     let nanos = SystemTime::now()
         .duration_since(UNIX_EPOCH)
-        .map(|d| d.as_nanos() as u64)
-        .unwrap_or(0);
+        .map_or(0, |d| d.as_nanos() as u64);
 
     let pid = u64::from(std::process::id());
 
