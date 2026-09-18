@@ -7,8 +7,7 @@ use procfs::{Current, LoadAverage};
 /// Reads real system state and misinterprets it mystically. This is the
 /// closest thing this crate has to monitoring, and it is still useless.
 pub fn log() {
-    let proc_count = procfs::process::all_processes()
-        .map_or(0, Iterator::count);
+    let proc_count = procfs::process::all_processes().map_or(0, Iterator::count);
 
     match LoadAverage::current() {
         Ok(l) => {
