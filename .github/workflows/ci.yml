@@ -31,10 +31,10 @@ jobs:
         with:
           toolchain: ${{matrix.rust}}
       # scx_rustland_core compiles its BPF component at build time via
-      # clang, and libbpf-sys builds vendored libbpf against libelf/zlib.
-      # Without these, `cargo build` fails in the build script, not in
-      # Rust code.
-      - run: sudo apt-get update && sudo apt-get install -y clang libelf-dev zlib1g-dev libzstd-dev pkg-config
+      # clang, libbpf-sys builds vendored libbpf against libelf/zlib, and
+      # the dispatcher links libseccomp. Without these, `cargo build`
+      # fails in the build script, not in Rust code.
+      - run: sudo apt-get update && sudo apt-get install -y clang libelf-dev zlib1g-dev libzstd-dev libseccomp-dev pkg-config
       - run: cargo build --verbose
       - run: cargo test --verbose
 
@@ -58,7 +58,7 @@ jobs:
           components: clippy
       # Clippy runs the build script too, so the BPF toolchain is needed
       # here as well.
-      - run: sudo apt-get update && sudo apt-get install -y clang libelf-dev zlib1g-dev libzstd-dev pkg-config
+      - run: sudo apt-get update && sudo apt-get install -y clang libelf-dev zlib1g-dev libzstd-dev libseccomp-dev pkg-config
       - run: cargo clippy --tests -- -Dclippy::all -Dclippy::pedantic
 
   clippy_beta:
@@ -72,7 +72,7 @@ jobs:
       - uses: dtolnay/rust-toolchain@beta
         with:
           components: clippy
-      - run: sudo apt-get update && sudo apt-get install -y clang libelf-dev zlib1g-dev libzstd-dev pkg-config
+      - run: sudo apt-get update && sudo apt-get install -y clang libelf-dev zlib1g-dev libzstd-dev libseccomp-dev pkg-config
       - run: cargo clippy --tests -- -Dclippy::all -Dclippy::pedantic
 
   format:
